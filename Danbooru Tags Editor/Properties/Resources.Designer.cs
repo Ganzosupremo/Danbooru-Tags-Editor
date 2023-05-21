@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Danbooru_Tags_Editor.Properties
+namespace Custom.Properties
 {
 
 

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Danbooru_Tags_Editor
+namespace Custom
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,5 +24,10 @@ namespace Danbooru_Tags_Editor
         {
             InitializeComponent();
         }
+
+        // Regex for the numbers at the end
+        // (\d+(\.\d+)?)([kM])?$
+        // Regex for the ?
+        // ^\?\s
     }
 }

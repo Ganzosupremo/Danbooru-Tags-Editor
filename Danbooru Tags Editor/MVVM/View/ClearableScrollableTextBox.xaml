@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="DanbooruTagsEditor.MVVM.View.ClearableScrollableTextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="760">
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Border CornerRadius="10" Background="#333540">
+                <TextBox HorizontalContentAlignment="Left" x:Name="CSTextBox"
+                     FontSize="18" FontWeight="Light" Foreground="NavajoWhite" 
+                     Background="Transparent" AcceptsReturn="True" AcceptsTab="True" 
+                     VerticalContentAlignment="Top" IsReadOnly="False"/>
+            </Border>
+        </ScrollViewer>
+        <Button x:Name="BtnClear" Width="35" Content="X" Foreground="SlateGray" Background="Transparent" BorderThickness="0" HorizontalAlignment="Right" Click="BtnClear_Click"/>
+    </Grid>
+</UserControl>

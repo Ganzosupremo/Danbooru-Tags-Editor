@@ -1,12 +1,40 @@
-﻿<Window x:Class="Danbooru_Tags_Editor.MainWindow"
+﻿<Window x:Class="Custom.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Danbooru_Tags_Editor"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:ViewModel="clr-namespace:DanbooruTagsEditor.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Icon="\Images\BlueLogo.png" WindowStyle="SingleBorderWindow" Background="Transparent" ResizeMode="CanResizeWithGrip" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <ViewModel:MainViewModel/>
+    </Window.DataContext>
+
+    <Border Background="#272537" CornerRadius="20">
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Logo -->
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10" VerticalAlignment="Center">
+                <fa:ImageAwesome Width="20" Height="20" Icon="Tags" Foreground="White"/>
+                <TextBlock Text="DanTags Editor" Foreground="White" FontSize="24" Margin="5,0,0,0" FontFamily="The Font"/>
+            </StackPanel>
+
+            <!--Left Button Section-->
+            <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical">
+                <RadioButton Style="{StaticResource MainButtonTheme}" Content="Home" Height="50" Foreground="White" FontSize="16" IsChecked="True" Command="{Binding HomeViewCommand}"/>
+                <RadioButton Style="{StaticResource MainButtonTheme}" Content="Modify Tags" Height="50" Foreground="White" FontSize="16" Command="{Binding ModifyTagsViewCommand}"/>
+            </StackPanel>
+
+            <ContentControl Grid.Row="5" Grid.Column="1" Margin="10" Content="{Binding CurrentView}"/>
+        </Grid>
+    </Border>
 </Window>

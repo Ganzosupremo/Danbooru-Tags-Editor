@@ -1,9 +1,26 @@
-﻿<Application x:Class="Danbooru_Tags_Editor.App"
+﻿<Application x:Class="Custom.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Danbooru_Tags_Editor"
+             xmlns:local="clr-namespace:Custom"
+             xmlns:ViewModel="clr-namespace:DanbooruTagsEditor.MVVM.ViewModel"
+             xmlns:View="clr-namespace:DanbooruTagsEditor.MVVM.View"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MainButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
+                <ResourceDictionary Source="Theme/InputTextBox.xaml"/>
+                <ResourceDictionary Source="Theme/ButtonRound.xaml"/>
+                <ResourceDictionary Source="Theme/TextBoxRound.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type ViewModel:HomeViewModel}">
+                <View:HomeView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type ViewModel:ModifyTagsViewModel}">
+                <View:ModifyTagsView/>
+            </DataTemplate>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

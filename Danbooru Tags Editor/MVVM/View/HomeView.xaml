@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="DanbooruTagsEditor.MVVM.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Fa="http://schemas.fontawesome.io/icons/"
+             xmlns:local="clr-namespace:DanbooruTagsEditor.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <StackPanel Margin="15 0 0 0">
+        <TextBlock Text="Home" Foreground="White" FontSize="32" HorizontalAlignment="Left" Margin="0 0 0 20" FontFamily="The Font"/>
+        <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+            <Border Width="400" Height="200">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#FF71B6DE" Offset="0.0"/>
+                        <GradientStop Color="#FF2771B7" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0 0 400 200">
+                    </RectangleGeometry>
+                </Border.Clip>
+                <Grid>
+                    <Fa:ImageAwesome Icon="Wrench" Foreground="#1e1d26" Width="250" Height="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="88,39,0,0" RenderTransformOrigin="0.5,0.5">
+                        <Fa:ImageAwesome.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-360.737"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Fa:ImageAwesome.RenderTransform>
+                    </Fa:ImageAwesome>
+
+                    <StackPanel>
+                        <TextBlock Text="What This &#x0a;Program Does?" Foreground="White" FontSize="20" Margin="20 10 10 0"/>
+                        <TextBlock Text="This program deletes the '?' &#x0a;and numbers at the end&#x0a;of a damboorou tag.&#x0a;And returns it to the user." Foreground="White" FontSize="12" Margin="20 10 10 0"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Width="200" Height="200" Margin="45 0 0 0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#5bc3ff" Offset="0.0"/>
+                        <GradientStop Color="#FFFFA400" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0 0 200 200">
+                    </RectangleGeometry>
+                </Border.Clip>
+                <Fa:ImageAwesome Icon="_500Px" Width="190" Height="190" Foreground="#1e1d26"></Fa:ImageAwesome>
+            </Border>
+        </StackPanel>
+
+        <StackPanel>
+            <!--Set A Margin Resource for the Border-->
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Margin" Value="15 0 0 0"></Setter>
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Text="Ignore these, they are just here so it doesn't look empty." Foreground="White" FontSize="20" HorizontalAlignment="Left" Margin="0 0 0 10"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 15">
+                <Border Width="150" Height="150" Background="#739689" CornerRadius="10">
+                    <Fa:ImageAwesome Icon="Adn" Width="130" Height="130" Foreground="#1e1d26"/>
+                </Border>
+                <Border Width="150" Height="150" Background="#899c7c" CornerRadius="10">
+                    <Fa:ImageAwesome Icon="CommentingOutline" Width="130" Height="130" Foreground="#1e1d26"/>
+                </Border>
+                <Border Width="150" Height="150" Background="#988b76" CornerRadius="10">
+                    <Fa:ImageAwesome Icon="Yelp" Width="130" Height="130" Foreground="#1e1d26"/>
+                </Border>
+                <Border Width="150" Height="150" Background="#739689" CornerRadius="10">
+                    <Fa:ImageAwesome Icon="Diamond" Width="130" Height="130" Foreground="#1e1d26"/>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel>
+            <TextBox Text="Found a Bug? Report it here: https://github.com/Ganzosupremo/Danbooru-Tags-Editor" Background="#272537" Foreground="White" Margin="0 0 0 10" IsReadOnly="True"></TextBox>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
