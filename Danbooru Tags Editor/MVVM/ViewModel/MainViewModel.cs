@@ -1,16 +1,9 @@
 ﻿using DanbooruTagsEditor.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DanbooruTagsEditor.MVVM.ViewModel
 {
     class MainViewModel : ObservableObject
     {
-
-
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand ModifyTagsViewCommand { get; set; }
         public HomeViewModel HomeVM { get; set; }

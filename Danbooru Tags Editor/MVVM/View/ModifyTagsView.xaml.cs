@@ -1,29 +1,20 @@
-﻿using System;
+﻿using DanbooruTagsEditor.Core;
+using DanbooruTagsEditor.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace DanbooruTagsEditor.MVVM.View
 {
     /// <summary>
     /// Interaction logic for ModifyTagsView.xaml
     /// </summary>
-    public partial class ModifyTagsView : UserControl, INotifyPropertyChanged
+    public partial class ModifyTagsView : UserControl
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public string ModifiedTags
-        {
-            get { return _Tags; }
-            set
-            {
-                _Tags = value;
-                OnPropertyChanged(nameof(ModifiedTags));
-            }
-        }
-
         private List<string> _TagsList = new List<string>();
         private string _Tags = "";
 
@@ -44,7 +35,7 @@ namespace DanbooruTagsEditor.MVVM.View
             _TagsList = SplitTags();
             ApplyRegexPatterns(_TagsList);
 
-            TagsTextBox.ModifiedTags = string.Join(Environment.NewLine, _TagsList);
+            TagsTextBox.ModifiedTags = string.Join(" ", _TagsList);
         }
 
         private List<string> SplitTags()
@@ -71,16 +62,19 @@ namespace DanbooruTagsEditor.MVVM.View
                 if (questionRegex.IsMatch(tagList[i]) && numbersRegex.IsMatch(tagList[i]))
                 {
                     tagList[i] = questionRegex.Replace(tagList[i], "");
-                    tagList[i] = numbersRegex.Replace(tagList[i], ",");
+                    tagList[i] = numbersRegex.Replace(tagList[i],",");
                 }
                 else
-                    tagList[i] = "Invalid Danbooru Tag";
+                    tagList[i] = $"Invalid Danbooru Tag: {tagList[i]}.";
             }
         }
 
-        protected virtual void OnPropertyChanged(string propertyName)
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            if (DataContext is ModifyTagsViewModel viewModel)
+            {
+                viewModel.ModifiedTagsTextBox = ModifiedTagsTextBox;
+            }
         }
     }
 }

@@ -182,5 +182,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Audio\Button_Click.wav" />
+    <Content Include="Audio\Button_Click2.wav" />
+    <Content Include="Audio\Button_Click3.wav" />
+    <Content Include="Audio\Button_Click4.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

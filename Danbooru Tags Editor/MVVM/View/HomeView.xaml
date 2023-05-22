@@ -81,7 +81,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel>
-            <TextBox Text="Found a Bug? Report it here: https://github.com/Ganzosupremo/Danbooru-Tags-Editor" Background="#272537" Foreground="White" Margin="0 0 0 10" IsReadOnly="True"></TextBox>
+            <TextBox Text="Found a Bug? Report it here: https://github.com/Ganzosupremo/Danbooru-Tags-Editor" Background="#272537" Foreground="White" Margin="0 0 0 10" FontSize="16" IsReadOnly="True"></TextBox>
         </StackPanel>
     </StackPanel>
 </UserControl>
