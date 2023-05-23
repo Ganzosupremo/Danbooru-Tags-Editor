@@ -105,6 +105,7 @@ namespace DanbooruTagsEditor.MVVM.View
             if (DataContext is ModifyTagsViewModel viewModel)
             {
                 viewModel.ModifiedTagsTextBox = ModifiedTagsTextBox;
+                viewModel.UploadImageTextBox = UploadImageTextBox;
             }
         }
     }

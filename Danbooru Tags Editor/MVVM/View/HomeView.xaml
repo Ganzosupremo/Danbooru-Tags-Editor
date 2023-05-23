@@ -22,7 +22,7 @@
                     </RectangleGeometry>
                 </Border.Clip>
                 <Grid>
-                    <Fa:ImageAwesome Icon="Wrench" Foreground="#1e1d26" Width="250" Height="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="88,39,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Fa:ImageAwesome Icon="Wrench" Foreground="#1e1d26" Width="250" Height="250" HorizontalAlignment="Left" Margin="88,39,0,0" RenderTransformOrigin="0.5,0.5">
                         <Fa:ImageAwesome.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -33,14 +33,16 @@
                         </Fa:ImageAwesome.RenderTransform>
                     </Fa:ImageAwesome>
 
+                    <!--Instruction Panel-->
                     <StackPanel>
                         <TextBlock Text="What This &#x0a;Program Does?" Foreground="White" FontSize="20" Margin="20 10 10 0"/>
                         <TextBlock Text="This program deletes the '?' &#x0a;and numbers at the end&#x0a;of a damboorou tag.&#x0a;And returns it to the user." Foreground="White" FontSize="12" Margin="20 10 10 0"/>
                     </StackPanel>
                 </Grid>
             </Border>
-
-            <Border Width="200" Height="200" Margin="45 0 0 0">
+            
+            <!--Right Side Panel-->
+            <Border Width="230" Height="200" Margin="45 0 0 0">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                         <GradientStop Color="#5bc3ff" Offset="0.0"/>
@@ -48,13 +50,26 @@
                     </LinearGradientBrush>
                 </Border.Background>
                 <Border.Clip>
-                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0 0 200 200">
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0 0 230 200">
                     </RectangleGeometry>
                 </Border.Clip>
-                <Fa:ImageAwesome Icon="_500Px" Width="190" Height="190" Foreground="#1e1d26"></Fa:ImageAwesome>
+                <Grid>
+                    <Fa:ImageAwesome Icon="InfoCircle" Width="180" Height="180" Foreground="#1e1d26" Margin="90,60,-40,-40" RenderTransformOrigin="0.5,0.5">
+                        <Fa:ImageAwesome.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-41.633"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Fa:ImageAwesome.RenderTransform>
+                    </Fa:ImageAwesome>
+                    <TextBlock Text="Some content will display a tooltip &#x0a;when you hover the mouse on them." Width="230" Margin="1 5 0 0" Height="50" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="14" Foreground="#FFF9F9E4"></TextBlock>
+                </Grid>
             </Border>
         </StackPanel>
 
+        <!--Bottom Panels-->
         <StackPanel>
             <!--Set A Margin Resource for the Border-->
             <StackPanel.Resources>

@@ -19,7 +19,7 @@
                    FontSize="32" Foreground="White" FontFamily="The Font"/>
 
         <!--Main Content-->
-        <StackPanel Width="800" Orientation="Vertical" Margin="0 0 0 10" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Orientation="Vertical" Margin="15 0 0 10" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Content="Paste the tags on the below text box." Width="800" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Foreground="White" FontWeight="Bold" FontFamily="Verdana"/>
             <TextBlock Margin="0 10 0 0" Text="Copy and paste the Danboorou tags here, then press Submit." Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontFamily="Verdana" FontWeight="Normal"/>
             <TextBlock Text="Prees X on the right to delete." Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontFamily="Verdana" FontWeight="Normal"/>
@@ -34,9 +34,21 @@
 
         <!--Modified Tags Section-->
         <StackPanel Margin="0 10 0 0">
-            <Label Content="Output:" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" FontFamily="Verdana"></Label>
-            <TextBlock Text="And Voila! Here are the edited tags." Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontFamily="Verdana" FontWeight="Normal"/>
+
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Output:" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" FontFamily="Verdana"/>
+                <fa:FontAwesome Icon="InfoCircle" Foreground="#FF5EA3FF">
+                    <fa:FontAwesome.ToolTip>
+                        <TextBlock Text="The edited tags end up on the below textbox &#x0a;and can be copied with the button on the right side."
+                                   FontSize="13" FontFamily="Verdana" FontWeight="Normal"></TextBlock>
+                    </fa:FontAwesome.ToolTip>
+                </fa:FontAwesome>
+            </StackPanel>
+
+            <TextBlock Text="And Voila! Here are the edited tags." Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontFamily="Verdana" FontWeight="Normal"/>
+
+            <!--Output TextBox And Buttons-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBox x:Name="ModifiedTagsTextBox" Text="{Binding ElementName=TagsTextBox, Path=ModifiedTags, Mode=OneWay}" IsReadOnly="True" Style="{StaticResource CustomTextBox}" 
                      Height="60" Width="512" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" 
                      AcceptsReturn="False" Margin="0 10 0 0"/>
@@ -50,10 +62,51 @@
                         </Button.ToolTip>
                     </Button>
                 </Border>
-
             </StackPanel>
         </StackPanel>
-        
+
+        <!--Upload Image, Create .txt File Section-->
+        <StackPanel Margin="0 10 0 0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Create .txt File" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" FontFamily="Verdana"/>
+                <fa:FontAwesome Icon="InfoCircle" Foreground="#FF5EA3FF">
+                    <fa:FontAwesome.ToolTip>
+                        <TextBlock Text="You can upload the image(s) where you copied the tags from, &#x0a;and .txt file(s) named the same as the image(s) will be created &#x0a;and the (same) tags will be written automatically to the file(s)."
+                                   FontSize="13" FontFamily="Verdana" FontWeight="Normal"></TextBlock>
+                    </fa:FontAwesome.ToolTip>
+                </fa:FontAwesome>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 12">
+                <TextBox x:Name="UploadImageTextBox" VerticalContentAlignment="Top" Width="330" Height="30" IsReadOnly="True" FontSize="13" FontFamily="Verdana" FontWeight="Light" Style="{StaticResource CustomTextBox}"/>
+
+                <!--Upload Button-->
+                <Border CornerRadius="7" BorderThickness="0" Height="30" Width="30" Margin="11 0 0 0" Background="#c2c6aa">
+                    <Button x:Name="UploadButton" Background="Transparent" BorderThickness="0" Command="{Binding UploadImageCommand}">
+                        <Button.Content>
+                            <fa:FontAwesome Icon="Upload"/>
+                        </Button.Content>
+                        <Button.ToolTip>
+                            <TextBlock Text="Upload an image from your computer &#x0a;that will be used to name the .txt file."/>
+                        </Button.ToolTip>
+                    </Button>
+                </Border>
+
+                <!--Download Button-->
+                <Border CornerRadius="7" BorderThickness="0" Height="30" Width="30" Margin="11 0 0 0" Background="#c2c6aa">
+                    <Button x:Name="DownloadButton" Background="Transparent" BorderThickness="0" Command="{Binding DownloadFileCommand}">
+                        <Button.Content>
+                            <fa:FontAwesome Icon="Download"/>
+                        </Button.Content>
+                        <Button.ToolTip>
+                            <TextBlock Text="Download the .txt file to your computer."/>
+                        </Button.ToolTip>
+                    </Button>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+
     </StackPanel>
-    
+
 </UserControl>
