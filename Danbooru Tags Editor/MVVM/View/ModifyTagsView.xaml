@@ -54,6 +54,7 @@
         <!--  Tag Text Box  -->
         <StackPanel Height="200">
 
+            <!--  Multiple Images CheckBox  -->
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <CheckBox
                     x:Name="MultipleImagesCheckBox"
