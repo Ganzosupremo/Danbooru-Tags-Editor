@@ -18,9 +18,10 @@ namespace DanbooruTagsEditor.MVVM.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         public TextBox ModifiedTagsTextBox { get; set; }
         public TextBox UploadImageTextBox { get; set; }
+        public bool? MultipleImages { get; set; }
         public ICommand CopyToClipboardCommand { get; }
         public ICommand UploadImageCommand { get; }
-        public ICommand DownloadFileCommand { get; }
+        //public ICommand DownloadFileCommand { get; }
 
         public string ToolTipText
         {
@@ -44,7 +45,7 @@ namespace DanbooruTagsEditor.MVVM.ViewModel
         {
             CopyToClipboardCommand = new RelayCommand(CopyToClipboard);
             UploadImageCommand = new RelayCommand(UploadImage);
-            DownloadFileCommand = new RelayCommand(DownloadFile);
+            //DownloadFileCommand = new RelayCommand(DownloadFile);
 
             try
             {
@@ -99,14 +100,32 @@ namespace DanbooruTagsEditor.MVVM.ViewModel
             
             if (response == true)
             {
-                foreach (string imagePath in openFileDialog.FileNames)
+                string[] imagePaths = openFileDialog.FileNames;
+                string[] tagGroups = ModifiedTagsTextBox.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+
+                if (imagePaths.Length != tagGroups.Length)
                 {
+                    MessageBox.Show("Number of selected images does not match the number of tag groups.");
+                    return;
+                }
+
+                for (int i = 0; i < imagePaths.Length; i++)
+                {
+                    string imagePath = imagePaths[i];
                     string imageName = Path.GetFileName(imagePath);
                     UploadImageTextBox.Text += imageName + Environment.NewLine;
 
-                    string textContents = ModifiedTagsTextBox.Text;
+                    string textContents = tagGroups[i];
                     CreateTextFileFromImage(imagePath, textContents);
                 }
+                //foreach (string imagePath in openFileDialog.FileNames)
+                //{
+                //    string imageName = Path.GetFileName(imagePath);
+                //    UploadImageTextBox.Text += imageName + Environment.NewLine;
+
+                //    string textContents = ModifiedTagsTextBox.Text;
+                //    CreateTextFileFromImage(imagePath, textContents);
+                //}
             }
         }
 
