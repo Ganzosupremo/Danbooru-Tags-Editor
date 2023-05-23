@@ -6,7 +6,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:ViewModel="clr-namespace:DanbooruTagsEditor.MVVM.ViewModel"
         mc:Ignorable="d"
-        Icon="\Images\BlueLogo.png" WindowStyle="SingleBorderWindow" Background="Transparent" ResizeMode="CanResizeWithGrip" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+        Icon="/Images/BlueLogo.png" WindowStyle="SingleBorderWindow" Background="Transparent" ResizeMode="CanResizeWithGrip" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <ViewModel:MainViewModel/>
     </Window.DataContext>
@@ -34,7 +34,7 @@
                 <RadioButton Style="{StaticResource MainButtonTheme}" Content="Modify Tags" Height="50" Foreground="White" FontSize="16" Command="{Binding ModifyTagsViewCommand}"/>
             </StackPanel>
 
-            <ContentControl Grid.Row="1" Grid.Column="1" Margin="10" Content="{Binding CurrentView}"/>
+            <ContentControl Grid.Row="1" Grid.Column="1" Margin="3" Content="{Binding CurrentView}"/>
         </Grid>
     </Border>
 </Window>

@@ -34,14 +34,14 @@
 
         <!--Modified Tags Section-->
         <StackPanel Margin="0 10 0 0">
-            <Label Content="The Modified Tags:" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" FontFamily="Verdana"></Label>
-            <TextBlock Text="And Voila! The program will delete the '?' and numbers at the end for you, and return those new tags here." Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontFamily="Verdana" FontWeight="Normal"/>
+            <Label Content="Output:" HorizontalContentAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="White" FontFamily="Verdana"></Label>
+            <TextBlock Text="And Voila! Here are the edited tags." Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontFamily="Verdana" FontWeight="Normal"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBox x:Name="ModifiedTagsTextBox" Text="{Binding ElementName=TagsTextBox, Path=ModifiedTags, Mode=OneWay}" IsReadOnly="True" Style="{StaticResource CustomTextBox}" 
                      Height="60" Width="512" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" 
                      AcceptsReturn="False" Margin="0 10 0 0"/>
                 <Border CornerRadius="7" BorderThickness="0" Height="30" Width="30" Margin="10 0 0 0" Background="#c2c6aa">
-                    <Button Background="Transparent" BorderThickness="0" Command="{Binding CopyToClipboardCommand}">
+                    <Button x:Name="CopyToClipboardButton" Background="Transparent" BorderThickness="0" Command="{Binding CopyToClipboardCommand}">
                         <Button.Content>
                             <fa:FontAwesome Icon="Clipboard"/>
                         </Button.Content>

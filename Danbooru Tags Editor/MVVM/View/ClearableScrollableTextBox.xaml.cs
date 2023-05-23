@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace DanbooruTagsEditor.MVVM.View
 {
@@ -18,6 +19,7 @@ namespace DanbooruTagsEditor.MVVM.View
 
 
         private string _Tags = "";
+        private MediaPlayer _mediaPlayer;
 
         public string ModifiedTags
         {
@@ -32,12 +34,44 @@ namespace DanbooruTagsEditor.MVVM.View
         public ClearableScrollableTextBox()
         {
             InitializeComponent();
+            this.Loaded += ClearableScrollableTextBox_Loaded;
+        }
+
+        private void ClearableScrollableTextBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _mediaPlayer = new MediaPlayer();
+                _mediaPlayer.MediaOpened += MediaOpened;
+                _mediaPlayer.MediaFailed += MediaFailed;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.GetType()}: {ex.Message}\n{ex.StackTrace}");
+            }
+        }
+
+        private void MediaFailed(object sender, ExceptionEventArgs e)
+        {
+            var ex = e.ErrorException;
+            MessageBox.Show($"MEDIA FAILED: {ex.GetType()}: {ex.Message}\n{ex.StackTrace}");
+        }
+
+        private void MediaOpened(object sender, EventArgs e)
+        {
+            _mediaPlayer.Play();
         }
 
         private void BtnClear_Click(object sender, RoutedEventArgs e)
         {
+            PlaySound(@"pack://siteoforigin:,,,/Audio/ButtonClick2.mp3");
             CSTextBox.Clear();
             CSTextBox.Focus();
+        }
+
+        private void PlaySound(string uri)
+        {
+            _mediaPlayer.Open(new Uri(uri, UriKind.Absolute));
         }
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
