@@ -18,7 +18,6 @@ namespace DanbooruTagsEditor.MVVM.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         public TextBox ModifiedTagsTextBox { get; set; }
         public TextBox UploadImageTextBox { get; set; }
-        public bool? MultipleImages { get; set; }
         public ICommand CopyToClipboardCommand { get; }
         public ICommand UploadImageCommand { get; }
         //public ICommand DownloadFileCommand { get; }

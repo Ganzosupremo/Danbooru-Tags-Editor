@@ -187,13 +187,5 @@ namespace DanbooruTagsEditor.MVVM.View
                 viewModel.UploadImageTextBox = UploadImageTextBox;
             }
         }
-
-        private void MultipleImagesCheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            if (DataContext is ModifyTagsViewModel viewModel)
-            {
-                viewModel.MultipleImages = MultipleImagesCheckBox.IsChecked;
-            }
-        }
     }
 }

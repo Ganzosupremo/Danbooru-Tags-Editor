@@ -60,7 +60,6 @@
                     x:Name="MultipleImagesCheckBox"
                     Background="#c2c6aa"
                     BorderThickness="1"
-                    Checked="MultipleImagesCheckBox_Checked"
                     Content="Multiple Images"
                     FontFamily="Verdana"
                     Foreground="White"
