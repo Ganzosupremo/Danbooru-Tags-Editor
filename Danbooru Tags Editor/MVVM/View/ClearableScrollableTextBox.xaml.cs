@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DanbooruTagsEditor.MVVM.View
+namespace Danbooru_Tags_Editor.MVVM.View
 {
     /// <summary>
     /// Interaction logic for ClearableScrollableTextBox.xaml

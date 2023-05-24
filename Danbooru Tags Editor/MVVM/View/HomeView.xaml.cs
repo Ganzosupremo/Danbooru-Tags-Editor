@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace DanbooruTagsEditor.MVVM.View
+namespace Danbooru_Tags_Editor.MVVM.View
 {
     /// <summary>
     /// Interaction logic for HomeView.xaml

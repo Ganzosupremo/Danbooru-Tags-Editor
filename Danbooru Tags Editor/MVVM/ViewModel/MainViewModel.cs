@@ -1,6 +1,6 @@
-﻿using DanbooruTagsEditor.Core;
+﻿using Danbooru_Tags_Editor.Core;
 
-namespace DanbooruTagsEditor.MVVM.ViewModel
+namespace Danbooru_Tags_Editor.MVVM.ViewModel
 {
     class MainViewModel : ObservableObject
     {

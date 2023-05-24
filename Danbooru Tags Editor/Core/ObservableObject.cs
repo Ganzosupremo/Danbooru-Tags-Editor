@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace DanbooruTagsEditor.Core
+namespace Danbooru_Tags_Editor.Core
 {
     internal class ObservableObject : INotifyPropertyChanged
     {

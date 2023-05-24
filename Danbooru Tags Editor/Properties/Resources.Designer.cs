@@ -61,15 +61,6 @@ namespace Danbooru_Tags_Editor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string Button_Click_wav {
-            get {
-                return ResourceManager.GetString("Button_Click.wav", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] ButtonClick {

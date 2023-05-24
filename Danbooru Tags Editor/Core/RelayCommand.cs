@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace DanbooruTagsEditor.Core
+namespace Danbooru_Tags_Editor.Core
 {
     class RelayCommand : ICommand
     {

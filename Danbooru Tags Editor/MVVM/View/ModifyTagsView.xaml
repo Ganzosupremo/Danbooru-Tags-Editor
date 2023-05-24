@@ -1,9 +1,9 @@
 ﻿<UserControl
-    x:Class="DanbooruTagsEditor.MVVM.View.ModifyTagsView"
+    x:Class="Danbooru_Tags_Editor.MVVM.View.ModifyTagsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:View="clr-namespace:DanbooruTagsEditor.MVVM.View"
-    xmlns:ViewModel="clr-namespace:DanbooruTagsEditor.MVVM.ViewModel"
+    xmlns:View="clr-namespace:Danbooru_Tags_Editor.MVVM.View"
+    xmlns:ViewModel="clr-namespace:Danbooru_Tags_Editor.MVVM.ViewModel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fa="http://schemas.fontawesome.io/icons/"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -74,7 +74,7 @@
                             FontFamily="Verdana"
                             FontSize="13"
                             FontWeight="Normal"
-                            Text="Check if you want to work with multiple images at the same time.&#x0a;You can write the tags for the different images on the same TextBox.&#x0a;Separate each tag group with a New Line (Enter Key) and '//',&#x0a; and copy the next tag group on the next line.&#x0a;For example:&#x0a;? blabla 69k. Enter a new line.&#x0a;Then enter '//'.&#x0a;Then Enter another New Line.&#x0a;Here starts the other tag group.                             &#x0a; Btw the order of the tag groups should be the same as the one in which you uploaded the images." />
+                            Text="Check if you want to work with multiple images at the same time.&#x0a;You can write the tags for the different images on the same TextBox.&#x0a;Separate each tag group with a New Line (Enter Key) and '//',&#x0a; and copy the next tag group on the next line.&#x0a;For example:&#x0a;? blabla 69k. Enter a new line.&#x0a;Then enter '//'.&#x0a;Then Enter another New Line, on this new line should the next tag group start.&#x0a; Btw the order of the tag groups should be the same as the one in which you uploaded the images." />
                     </fa:FontAwesome.ToolTip>
                 </fa:FontAwesome>
             </StackPanel>
@@ -187,7 +187,7 @@
                             FontFamily="Verdana"
                             FontSize="13"
                             FontWeight="Normal"
-                            Text="Before you upload any images, please enter the tags first and the Output TextBox should not be empty.&#x0a;andYou can upload the image(s) where you copied the tags from, &#x0a;and text file(s) named after the image(s) will be created &#x0a;and the (same) tags will be written automatically to the file(s)." />
+                            Text="Before you upload any images, please enter the tags first and the Output TextBox should not be empty.&#x0a;You can upload the image(s) where you copied the tags from, &#x0a;and text file(s) named after the image(s) will be created &#x0a;and the (same) tags will be written automatically to the file(s)." />
                     </fa:FontAwesome.ToolTip>
                 </fa:FontAwesome>
             </StackPanel>

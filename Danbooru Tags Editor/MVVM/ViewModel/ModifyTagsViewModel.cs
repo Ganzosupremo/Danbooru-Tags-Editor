@@ -1,17 +1,14 @@
-﻿using DanbooruTagsEditor.Core;
+﻿using Danbooru_Tags_Editor.Core;
 using Microsoft.Win32;
 using System;
 using System.ComponentModel;
 using System.IO;
-using System.Media;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using NAudio.Wave;
-using System.Text.RegularExpressions;
 
-namespace DanbooruTagsEditor.MVVM.ViewModel
+namespace Danbooru_Tags_Editor.MVVM.ViewModel
 {
     public class ModifyTagsViewModel : INotifyPropertyChanged
     {

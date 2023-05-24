@@ -130,9 +130,6 @@
   <data name="ButtonClick4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\audio\buttonclick4.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Button_Click.wav" xml:space="preserve">
-    <value />
-  </data>
   <data name="QuickFart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\audio\quickfart.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
