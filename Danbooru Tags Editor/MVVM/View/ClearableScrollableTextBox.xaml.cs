@@ -15,21 +15,29 @@ namespace Danbooru_Tags_Editor.MVVM.View
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private List<string> _TagsList = new List<string>();
-
-
-        private string _Tags = "";
-        private MediaPlayer _mediaPlayer;
-
         public string ModifiedTags
         {
-            get { return _Tags; }
+            get { return _Modifiedags; }
             set 
             { 
-                _Tags = value;
+                _Modifiedags = value;
                 OnPropertyChanged(nameof(ModifiedTags));
             }
         }
+        public string DanTags
+        {
+            get { return _Tags; }
+            set
+            {
+                _Tags = value;
+                OnPropertyChanged(nameof(DanTags));
+            }
+        }
+
+        private string _Tags = "";
+        private string _Modifiedags = "";
+        private MediaPlayer _mediaPlayer;
+        private List<string> _TagsList = new List<string>();
 
         public ClearableScrollableTextBox()
         {
@@ -82,7 +90,7 @@ namespace Danbooru_Tags_Editor.MVVM.View
                 return;
             }
 
-            _Tags = CSTextBox.Text;
+            _Modifiedags = CSTextBox.Text;
             _TagsList = SplitTags();
             ApplyRegexPatterns(_TagsList);
 
@@ -93,7 +101,7 @@ namespace Danbooru_Tags_Editor.MVVM.View
         {
             try
             {
-                string[] tagArray = _Tags.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+                string[] tagArray = _Modifiedags.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
                 return new List<string>(tagArray);
             }
             catch (Exception)

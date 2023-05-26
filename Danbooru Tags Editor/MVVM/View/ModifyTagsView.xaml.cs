@@ -15,9 +15,10 @@ namespace Danbooru_Tags_Editor.MVVM.View
     public partial class ModifyTagsView : UserControl
     {
         private List<string> _TagsList = new List<string>();
-        private List<List<string>> _TagLists = new List<List<string>>(); 
+        private List<List<string>> _TagLists = new List<List<string>>();
         private string _Tags = "";
         private MediaPlayer _mediaPlayer;
+        private ModifyTagsViewModel _modifyTagsViewModel;
 
         public ModifyTagsView()
         {
@@ -27,6 +28,8 @@ namespace Danbooru_Tags_Editor.MVVM.View
 
         private void ModifyTagsView_Loaded(object sender, RoutedEventArgs e)
         {
+            TagsTextBox.CSTextBox.AcceptsReturn = true;
+            TagsTextBox.CSTextBox.IsReadOnly = false;
             try
             {
                 _mediaPlayer = new MediaPlayer();
@@ -54,15 +57,15 @@ namespace Danbooru_Tags_Editor.MVVM.View
         {
             if (MultipleImagesCheckBox.IsChecked == true)
             {
-                SubmitMultipleTags();
+                SubmitMultipleTagGroups();
             }
             else if (MultipleImagesCheckBox.IsChecked == false)
             {
-                SubmitOneTag();
+                SubmitOneTagGroup();
             }
         }
 
-        private void SubmitOneTag()
+        private void SubmitOneTagGroup()
         {
             if (string.IsNullOrEmpty(TagsTextBox.CSTextBox.Text))
             {
@@ -78,7 +81,7 @@ namespace Danbooru_Tags_Editor.MVVM.View
             TagsTextBox.ModifiedTags = string.Join(" ", _TagsList);
         }
 
-        private void SubmitMultipleTags()
+        private void SubmitMultipleTagGroups()
         {
             if (string.IsNullOrEmpty(TagsTextBox.CSTextBox.Text))
             {
@@ -89,6 +92,7 @@ namespace Danbooru_Tags_Editor.MVVM.View
 
             _Tags = TagsTextBox.CSTextBox.Text;
             _TagLists = SplitTags("");
+            _modifyTagsViewModel.TagsLists = _TagLists;
             ApplyRegexPatterns(_TagLists);
 
             StringBuilder modifiedTagsBuilder = new StringBuilder();
@@ -145,7 +149,7 @@ namespace Danbooru_Tags_Editor.MVVM.View
                 if (questionRegex.IsMatch(tagList[i]) && numbersRegex.IsMatch(tagList[i]))
                 {
                     tagList[i] = questionRegex.Replace(tagList[i], "");
-                    tagList[i] = numbersRegex.Replace(tagList[i],",");
+                    tagList[i] = numbersRegex.Replace(tagList[i], ",");
                 }
                 else
                     tagList[i] = $"Invalid Danbooru Tag: {tagList[i]}.";
@@ -185,6 +189,9 @@ namespace Danbooru_Tags_Editor.MVVM.View
             {
                 viewModel.ModifiedTagsTextBox = ModifiedTagsTextBox;
                 viewModel.UploadImageTextBox = UploadImageTextBox;
+                viewModel.CSTextBox = TagsTextBox;
+                _modifyTagsViewModel = viewModel;
+                _modifyTagsViewModel.TagsLists = _TagLists;
             }
         }
     }

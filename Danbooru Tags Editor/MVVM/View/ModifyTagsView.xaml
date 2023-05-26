@@ -46,16 +46,19 @@
                         FontFamily="Verdana"
                         FontSize="13"
                         FontWeight="Normal"
-                        Text="Copy and paste the Danboorou tags here, then press Submit.&#x0a;Press X on the right to delete." />
+                        Text="You can copy a single danboorou tag group, and by tag group I mean, the tags for that image.&#x0a;Tick the Multiple Images Checkbox, so you can copy multiple groups and paste them, separating each group with a new line, then '//', then the next tag group on the next line.&#x0a;You can also select a text file containing multiple tag groups separated same as explained. Click Submit to get the output(s)." />
                 </fa:FontAwesome.ToolTip>
             </fa:FontAwesome>
         </StackPanel>
 
         <!--  Tag Text Box  -->
-        <StackPanel Height="200">
+        <StackPanel Height="210">
 
             <!--  Multiple Images CheckBox  -->
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <StackPanel
+                Margin="0,5,0,5"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
                 <CheckBox
                     x:Name="MultipleImagesCheckBox"
                     Background="#c2c6aa"
@@ -74,23 +77,47 @@
                             FontFamily="Verdana"
                             FontSize="13"
                             FontWeight="Normal"
-                            Text="Check if you want to work with multiple images at the same time.&#x0a;You can write the tags for the different images on the same TextBox.&#x0a;Separate each tag group with a New Line (Enter Key) and '//',&#x0a; and copy the next tag group on the next line.&#x0a;For example:&#x0a;? blabla 69k. Enter a new line.&#x0a;Then enter '//'.&#x0a;Then Enter another New Line, on this new line should the next tag group start.&#x0a; Btw the order of the tag groups should be the same as the one in which you uploaded the images." />
+                            Text="Check if you want to work with multiple images at the same time.&#x0a;You can write the tags for the different images on the same TextBox.&#x0a;Separate each tag group with a New Line (Enter Key) and '//',&#x0a; and copy the next tag group on the next line.&#x0a;For example:&#x0a;? blabla 69k. Enter a new line.&#x0a;Then enter '//'.&#x0a;Then Enter another New Line, on this new line should the next tag group start.&#x0a; Btw the order of the tag groups should be the same as the images order.&#x0a;If you upload a text file, the tag groups on that file should also be separated same as explained." />
                     </fa:FontAwesome.ToolTip>
                 </fa:FontAwesome>
             </StackPanel>
-            <View:ClearableScrollableTextBox
-                x:Name="TagsTextBox"
-                Width="512"
-                Height="150"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="16"
-                Foreground="NavajoWhite" />
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <View:ClearableScrollableTextBox
+                    x:Name="TagsTextBox"
+                    Width="512"
+                    Height="150"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="#333540"
+                    FontSize="16"
+                    Foreground="NavajoWhite" />
+                <Border
+                    Width="30"
+                    Height="30"
+                    Margin="10,0,0,0"
+                    Background="#c2c6aa"
+                    BorderThickness="0"
+                    CornerRadius="7">
+                    <Button
+                        x:Name="SelectTextFile"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Command="{Binding SelectTextFileCommand}">
+                        <Button.Content>
+                            <fa:FontAwesome Icon="File" />
+                        </Button.Content>
+                        <Button.ToolTip>
+                            <ToolTip Content="For a better control and undestanding of what's going on, alternatevely, you can copy the danboorou tags to a text file, and select it here. Don't forget to separate each tag group with a new line, then '//' and another new line." />
+                        </Button.ToolTip>
+                    </Button>
+                </Border>
+            </StackPanel>
+
             <RadioButton
                 x:Name="BtnSubmit"
                 Width="100"
                 Height="27"
-                Margin="10"
+                Margin="5"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Click="BtnSubmit_Click"
@@ -187,7 +214,7 @@
                             FontFamily="Verdana"
                             FontSize="13"
                             FontWeight="Normal"
-                            Text="Before you upload any images, please enter the tags first and the Output TextBox should not be empty.&#x0a;You can upload the image(s) where you copied the tags from, &#x0a;and text file(s) named after the image(s) will be created &#x0a;and the (same) tags will be written automatically to the file(s)." />
+                            Text="Before you upload any images, please enter the tags first and the Output text box should not be empty.&#x0a;You can create a text file for a single image, or if you ticked the Multiple Images Checkbox, you can create multiple text files for any amount of images.&#x0a;You can either upload each image one by one, or upload the entire folder where your images are.&#x0a;Note: It should be one tag group per image, if you have more images than tag groups, then some images won't have a text file created, and if you have more tag groups than images, then it will create a text file only for the available images." />
                     </fa:FontAwesome.ToolTip>
                 </fa:FontAwesome>
             </StackPanel>
@@ -226,7 +253,29 @@
                             <fa:FontAwesome Icon="Upload" />
                         </Button.Content>
                         <Button.ToolTip>
-                            <TextBlock Text="Upload an image from your computer &#x0a;that will be used to name the .txt file." />
+                            <TextBlock Text="Upload image(s) from your computer &#x0a;that will be used to name the .txt file(s). Alternatevely, you can upload an entire folder with your images." />
+                        </Button.ToolTip>
+                    </Button>
+                </Border>
+
+                <!--  Select Image Folder Button  -->
+                <Border
+                    Width="30"
+                    Height="30"
+                    Margin="11,0,0,0"
+                    Background="#c2c6aa"
+                    BorderThickness="0"
+                    CornerRadius="7">
+                    <Button
+                        x:Name="SelectFolderButton"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Command="{Binding SelectFolderCommand}">
+                        <Button.Content>
+                            <fa:FontAwesome Icon="FolderOpen" />
+                        </Button.Content>
+                        <Button.ToolTip>
+                            <TextBlock Text="Select your image source folder" />
                         </Button.ToolTip>
                     </Button>
                 </Border>

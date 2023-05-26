@@ -9,22 +9,20 @@
     d:DesignWidth="760"
     mc:Ignorable="d">
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <Border Background="#333540" CornerRadius="10">
-                <TextBox
-                    x:Name="CSTextBox"
-                    HorizontalContentAlignment="Left"
-                    VerticalContentAlignment="Top"
-                    AcceptsReturn="True"
-                    AcceptsTab="True"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    FontSize="18"
-                    FontWeight="Light"
-                    Foreground="#c2c6aa"
-                    IsReadOnly="False" />
-            </Border>
-        </ScrollViewer>
+        <Border Background="#333540" CornerRadius="10">
+            <TextBox
+                x:Name="CSTextBox"
+                HorizontalContentAlignment="Left"
+                VerticalContentAlignment="Top"
+                AcceptsReturn="True"
+                AcceptsTab="True"
+                Background="Transparent"
+                BorderThickness="0"
+                FontSize="18"
+                FontWeight="Light"
+                Foreground="#c2c6aa"
+                IsReadOnly="False" />
+        </Border>
         <Button
             x:Name="BtnClear"
             Width="35"
