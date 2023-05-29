@@ -1,1 +1,5 @@
 # DanTagsEditor
+
+(The same app but in .NET, don't really know if it is .NET Core or just .NET, they are many version that i'm genuinely confused.)
+
+I recently started training my own AI image models, specifically LoRAs, and I use the website Danboorou https://danbooru.donmai.us, for the source images, as many other models, but the problem is that the tags on there are written like so; ? blabla 69k, which for this case, is annoying, because normally for training a model correctly, you create a .txt file named after the image you want to use for training and paste the tags there, but since the tags have these extra characters you need to go on every single tag and delete them, so that you can train a model correctly. You could choose to train a model without a text file, but the training is not that great. That's why I created this app, just copy and paste the tags, or you can copy and paste them to a separate text file and upload that file, and the app will delete those extra characters for you. Optionally, you can select a folder with the images you want to use, and a text file - with the tags in it - will be created for every image.
