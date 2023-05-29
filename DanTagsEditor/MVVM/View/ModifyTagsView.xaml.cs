@@ -82,7 +82,7 @@ namespace DanTagsEditor.MVVM.View
             PlaySound(@"pack://siteoforigin:,,,/Audio/ButtonClick3.mp3");
 
             _Tags = TagsTextBox.clearableTextBox.Text;
-            _TagsList = SplitTag(0);
+            _TagsList = SplitTagsList();
             ApplyRegexPatterns(_TagsList);
 
             TagsTextBox.ModifiedTags = string.Join(" ", _TagsList);
@@ -99,7 +99,7 @@ namespace DanTagsEditor.MVVM.View
             PlaySound(@"pack://siteoforigin:,,,/Audio/ButtonClick3.mp3");
 
             _Tags = TagsTextBox.clearableTextBox.Text;
-            _TagLists = SplitTags("");
+            _TagLists = SplitTagsLists();
             _modifyTagsViewModel.TagsLists = _TagLists;
             ApplyRegexPatterns(_TagLists);
 
@@ -116,7 +116,7 @@ namespace DanTagsEditor.MVVM.View
         /// </summary>
         /// <param name="i"></param>
         /// <returns>The list with the tags splitted on a new line.</returns>
-        private List<string> SplitTag(int i = 1)
+        private List<string> SplitTagsList()
         {
             try
             {
@@ -135,7 +135,7 @@ namespace DanTagsEditor.MVVM.View
         /// </summary>
         /// <param name="s"></param>
         /// <returns>The list of tag lists and the tags within are splitted on a new line.</returns>
-        private List<List<string>> SplitTags(string s = "")
+        private List<List<string>> SplitTagsLists()
         {
             try
             {
@@ -208,6 +208,7 @@ namespace DanTagsEditor.MVVM.View
                 viewModel.ModifiedTagsTextBox = ModifiedTagsTextBox;
                 viewModel.UploadImageTextBox = UploadImageTextBox;
                 viewModel.ClearableTextBox = TagsTextBox;
+                viewModel.MultipleImagesCB = MultipleImagesCheckBox;
                 _modifyTagsViewModel = viewModel;
                 _modifyTagsViewModel.TagsLists = _TagLists;
             }

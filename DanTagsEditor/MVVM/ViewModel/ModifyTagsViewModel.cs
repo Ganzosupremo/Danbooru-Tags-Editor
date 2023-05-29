@@ -20,6 +20,7 @@ namespace DanTagsEditor.MVVM.ViewModel
     {
         public TextBox ModifiedTagsTextBox { get; set; } = new TextBox();
         public TextBox UploadImageTextBox { get; set; } = new TextBox();
+        public CheckBox MultipleImagesCB { get; set; } = new CheckBox();
         public ClearableTextBox ClearableTextBox { get; set; } = new ClearableTextBox();
         public RelayCommand CopyToClipboardCommand { get; }
         public RelayCommand UploadImageCommand { get; }
@@ -37,7 +38,6 @@ namespace DanTagsEditor.MVVM.ViewModel
                 OnPropertyChanged(nameof(ToolTipText));
             }
         }
-
         public string TextFileText
         {
             get => _textFileText;
@@ -147,6 +147,7 @@ namespace DanTagsEditor.MVVM.ViewModel
 
         /// <summary>
         /// A Command to prompt the user to select a text file
+        /// containing the tags
         /// </summary>
         /// <param name="obj"></param>
         private void SelectTextCommand(object obj)
@@ -165,6 +166,10 @@ namespace DanTagsEditor.MVVM.ViewModel
             {
                 ClearableTextBox.DanTags = openFileDialog.FileName;
                 ClearableTextBox.clearableTextBox.Text = openFileDialog.FileName;
+
+                // mark it as check automatically, because if the user selects a file
+                // presumably the file contains more than one tag group
+                MultipleImagesCB.IsChecked = true;
                 ReadFileContents(openFileDialog.FileName);
             }
         }
