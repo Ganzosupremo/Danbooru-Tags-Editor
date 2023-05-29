@@ -6,7 +6,7 @@ on:
       - "DanTags/v*"
 
 env:
-	PROJECT_PATH: DanTagsEditor/DanTagsEditor.csproj
+  PROJECT_PATH: DanTagsEditor/DanTagsEditor.csproj
 
 jobs:
   deploy:
