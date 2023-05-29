@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+	  <UseWindowsForms>true</UseWindowsForms>
+	  <PlatformTarget>x64</PlatformTarget>
+	  <SignAssembly>False</SignAssembly>
+	  <AssemblyOriginatorKeyFile>DanTagsEditor</AssemblyOriginatorKeyFile>
+	  <StartupObject>DanTagsEditor.App</StartupObject>
+	  <ApplicationIcon>Images\AppLogo.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Audio\ButtonClick.mp3" />
+    <None Remove="Audio\ButtonClick2.mp3" />
+    <None Remove="Audio\ButtonClick3.mp3" />
+    <None Remove="Audio\ButtonClick4.mp3" />
+    <None Remove="Audio\QuickFart.mp3" />
+    <None Remove="Images\AppLogo.ico" />
+    <None Remove="Images\WindowLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Audio\ButtonClick.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\ButtonClick2.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\ButtonClick3.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\ButtonClick4.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Audio\QuickFart.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MVVM\Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\AppLogo.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\WindowLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

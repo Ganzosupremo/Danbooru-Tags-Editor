@@ -1,0 +1,102 @@
+﻿<Window
+    x:Class="DanTagsEditor.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ViewModel="clr-namespace:DanTagsEditor.MVVM.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:local="clr-namespace:DanTagsEditor"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    AllowsTransparency="True"
+    Background="Transparent"
+    Icon="{StaticResource AppLogo}"
+    ResizeMode="NoResize"
+    SizeToContent="WidthAndHeight"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Window.DataContext>
+        <ViewModel:MainViewModel />
+    </Window.DataContext>
+
+    <Border Background="#272537" CornerRadius="20">
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--  Logo  -->
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="10"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <fa:ImageAwesome
+                    Width="20"
+                    Height="20"
+                    Foreground="White"
+                    Icon="Tags" />
+                <TextBlock
+                    Margin="5,0,0,0"
+                    FontFamily="The Font"
+                    FontSize="24"
+                    Foreground="White"
+                    Text="DanTags Editor" />
+            </StackPanel>
+
+            <!--  Close button  -->
+            <StackPanel
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top">
+                <Button
+                    Width="30"
+                    Height="30"
+                    Margin="0,0,10,0"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Command="{Binding CloseAppCommand}">
+                    <Button.Content>
+                        <fa:ImageAwesome Foreground="IndianRed" Icon="WindowCloseOutline" />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <!--  Left Button Section  -->
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="0"
+                Orientation="Vertical">
+                <RadioButton
+                    Height="50"
+                    Command="{Binding HomeViewCommand}"
+                    Content="Home"
+                    FontSize="16"
+                    Foreground="White"
+                    IsChecked="True"
+                    Style="{StaticResource MainButtonTheme}" />
+                <RadioButton
+                    Height="50"
+                    Command="{Binding ModifyTagsViewCommand}"
+                    Content="Modify Tags"
+                    FontSize="16"
+                    Foreground="White"
+                    Style="{StaticResource MainButtonTheme}" />
+            </StackPanel>
+
+            <ContentControl
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="3"
+                Content="{Binding CurrentView}" />
+        </Grid>
+    </Border>
+</Window>

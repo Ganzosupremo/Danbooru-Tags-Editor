@@ -1,0 +1,29 @@
+﻿<Application
+    x:Class="DanTagsEditor.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:View="clr-namespace:DanTagsEditor.MVVM.View"
+    xmlns:ViewModel="clr-namespace:DanTagsEditor.MVVM.ViewModel"
+    xmlns:local="clr-namespace:DanTagsEditor"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/MainButtonTheme.xaml" />
+                <ResourceDictionary Source="Themes/CustomTextBox.xaml" />
+                <ResourceDictionary Source="Themes/ButtonRound.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <BitmapImage x:Key="AppLogo" UriSource="/Images/AppLogo.ico" />
+            <BitmapImage x:Key="WindowLogo" UriSource="/Images/WindowLogo.png" />
+
+
+            <DataTemplate DataType="{x:Type ViewModel:HomeViewModel}">
+                <View:HomeView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type ViewModel:ModifyTagsViewModel}">
+                <View:ModifyTagsView />
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
