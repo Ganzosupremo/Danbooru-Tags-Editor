@@ -1,7 +1,7 @@
 name: "Deploy DanTags Editor"
 
 on:
-	push:
+	push origin:
 		tags:
 			- "DanTags/v*"
 
