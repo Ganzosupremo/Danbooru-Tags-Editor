@@ -46,12 +46,12 @@ namespace DanTagsEditor.MVVM.View
         private string _Tags = "";
         private string _Modifiedags = "";
         private MediaPlayer _mediaPlayer = new();
-        private List<string> _TagsList = new();
 
         public ClearableTextBox()
         {
             InitializeComponent();
             this.Loaded += ClearableTextBox_Loaded;
+
         }
 
         private void ClearableTextBox_Loaded(object sender, RoutedEventArgs e)
@@ -79,75 +79,34 @@ namespace DanTagsEditor.MVVM.View
             _mediaPlayer.Play();
         }
 
-        private void BtnClear_Click(object sender, RoutedEventArgs e)
-        {
-            PlaySound(@"pack://siteoforigin:,,,/Audio/ButtonClick2.mp3");
-            clearableTextBox.Clear();
-            clearableTextBox.Focus();
-        }
+        //private void BtnClear_Click(object sender, RoutedEventArgs e)
+        //{
+        //    PlaySound(@"pack://siteoforigin:,,,/Audio/ButtonClick2.mp3");
+        //    clearableTextBox.Clear();
+        //    clearableTextBox.Focus();
+        //}
 
-        private void PlaySound(string uri)
-        {
-            _mediaPlayer.Open(new Uri(uri, UriKind.Absolute));
-        }
-
-        private void BtnSubmit_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(clearableTextBox.Text))
-            {
-                MessageBox.Show("Please provide the tags", "Warning No Tags", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            _Modifiedags = clearableTextBox.Text;
-            _TagsList = SplitTags();
-            ApplyRegexPatterns(_TagsList);
-
-            ModifiedTags = string.Join(Environment.NewLine, _TagsList);
-        }
-
-        private List<string> SplitTags()
-        {
-            try
-            {
-                string[] tagArray = _Modifiedags.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-                return new List<string>(tagArray);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Format Not Valid, Check the input.");
-                return new List<string>();
-            }
-        }
-
-        private void ApplyRegexPatterns(List<string> tagList)
-        {
-            Regex questionRegex = QuestionSignRegex();
-            Regex numbersRegex = NumbersRegex();
-
-            for (int i = 0; i < tagList.Count; i++)
-            {
-                if (questionRegex.IsMatch(tagList[i]) && numbersRegex.IsMatch(tagList[i]))
-                {
-                    tagList[i] = questionRegex.Replace(tagList[i], "");
-                    tagList[i] = numbersRegex.Replace(tagList[i], ",");
-                }
-                else
-                {
-                    tagList[i] = "Invalid Danbooru Tag";
-                }
-            }
-        }
+        //private void PlaySound(string uri)
+        //{
+        //    _mediaPlayer.Open(new Uri(uri, UriKind.Absolute));
+        //}
 
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        [GeneratedRegex("^\\?\\s", RegexOptions.IgnoreCase, "en-US")]
-        private static partial Regex QuestionSignRegex();
-        
-        [GeneratedRegex("(\\d+(\\.\\d+)?)([kM])?$", RegexOptions.IgnoreCase, "en-US")]
-        private static partial Regex NumbersRegex();
+        private void ClearableTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(clearableTextBox.Text))
+                TBPlaceholderText.Visibility = Visibility.Visible;
+            else
+                TBPlaceholderText.Visibility = Visibility.Hidden;
+        }
+
+        private void TBPlaceholderText_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            clearableTextBox.Focus();
+        }
     }
 }

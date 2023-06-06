@@ -10,6 +10,8 @@
     AllowsTransparency="True"
     Background="Transparent"
     Icon="{StaticResource AppLogo}"
+    MouseDown="Window_MouseRightButtonDown"
+    MouseRightButtonDown="Window_MouseRightButtonDown"
     ResizeMode="NoResize"
     SizeToContent="WidthAndHeight"
     WindowStartupLocation="CenterScreen"
@@ -97,6 +99,8 @@
                 Grid.Column="1"
                 Margin="3"
                 Content="{Binding CurrentView}" />
+
+            <StackPanel />
         </Grid>
     </Border>
 </Window>

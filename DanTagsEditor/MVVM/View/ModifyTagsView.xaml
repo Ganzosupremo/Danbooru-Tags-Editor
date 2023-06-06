@@ -7,7 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fa="http://schemas.fontawesome.io/icons/"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="600"
+    d:DesignHeight="620"
     d:DesignWidth="800"
     Loaded="UserControl_Loaded"
     mc:Ignorable="d">
@@ -51,7 +51,7 @@
         </StackPanel>
 
         <!--  Tag Text Box  -->
-        <StackPanel Height="210">
+        <StackPanel Height="280">
 
             <!--  Multiple Images CheckBox  -->
             <StackPanel
@@ -83,11 +83,10 @@
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <View:ClearableTextBox
                     x:Name="TagsTextBox"
-                    Width="512"
-                    Height="150"
+                    Width="600"
+                    Height="200"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Background="#333540"
                     FontSize="16"
                     Foreground="NavajoWhite" />
                 <Border
@@ -106,7 +105,7 @@
                             <fa:FontAwesome Icon="File" />
                         </Button.Content>
                         <Button.ToolTip>
-                            <ToolTip Content="For a better control and undestanding of what's going on, alternatevely, you can copy the danboorou tags to a text file, and select it here. Don't forget to separate each tag group with a new line, then '//' and another new line." />
+                            <ToolTip Content="Use this button to upload a text file containing the tag groups separated using the same style as the example text." />
                         </Button.ToolTip>
                     </Button>
                 </Border>
@@ -170,6 +169,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     AcceptsReturn="False"
+                    Background="#333540"
                     FontSize="16"
                     IsReadOnly="True"
                     Style="{StaticResource CustomTextBox}"
@@ -226,6 +226,7 @@
                     Width="350"
                     Height="40"
                     VerticalContentAlignment="Top"
+                    Background="#333540"
                     FontFamily="Verdana"
                     FontSize="13"
                     FontWeight="Light"

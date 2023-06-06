@@ -2,13 +2,10 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net7.0-windows10.0.22621.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
 	  <UseWindowsForms>true</UseWindowsForms>
-	  <PlatformTarget>x64</PlatformTarget>
-	  <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-	  <SignAssembly>False</SignAssembly>
 	  <AssemblyOriginatorKeyFile>DanTagsEditor</AssemblyOriginatorKeyFile>
 	  <StartupObject>DanTagsEditor.App</StartupObject>
 	  <ApplicationIcon>Images\AppLogo.ico</ApplicationIcon>
@@ -44,9 +41,11 @@
 
   <ItemGroup>
     <Folder Include="MVVM\Model\" />
+    <Folder Include="MVVM\Model\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
     <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
   </ItemGroup>
 

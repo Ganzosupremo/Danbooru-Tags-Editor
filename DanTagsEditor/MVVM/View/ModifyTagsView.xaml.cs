@@ -95,7 +95,6 @@ namespace DanTagsEditor.MVVM.View
                 MessageBox.Show("Please provide the tags", "Warning No Tags", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
             PlaySound(@"pack://siteoforigin:,,,/Audio/ButtonClick3.mp3");
 
             _Tags = TagsTextBox.clearableTextBox.Text;
@@ -103,7 +102,7 @@ namespace DanTagsEditor.MVVM.View
             _modifyTagsViewModel.TagsLists = _TagLists;
             ApplyRegexPatterns(_TagLists);
 
-            StringBuilder modifiedTagsBuilder = new StringBuilder();
+            StringBuilder modifiedTagsBuilder = new();
             foreach (List<string> imageTags in _TagLists)
             {
                 modifiedTagsBuilder.AppendLine(string.Join(" ", imageTags));

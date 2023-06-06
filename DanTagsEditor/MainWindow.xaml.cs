@@ -11,5 +11,19 @@ namespace DanTagsEditor
         {
             InitializeComponent();
         }
+
+        private void Window_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            try
+            {
+                DragMove();
+            }
+            catch (System.InvalidOperationException)
+            {
+
+                return;
+            }
+
+        }
     }
 }

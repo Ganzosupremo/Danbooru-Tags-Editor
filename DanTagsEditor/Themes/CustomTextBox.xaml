@@ -6,7 +6,7 @@
                     <Border
                         Width="{TemplateBinding Width}"
                         Height="{TemplateBinding Height}"
-                        Background="#333540"
+                        Background="{TemplateBinding Background}"
                         CornerRadius="10">
                         <Grid>
                             <Rectangle StrokeThickness="1" />
