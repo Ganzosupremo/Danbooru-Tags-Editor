@@ -224,7 +224,11 @@ namespace DanTagsEditor.MVVM.ViewModel
             string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".bmp" };
             string[] imageFiles = Directory.GetFiles(folderPath)
                                            .Where(file => imageExtensions.Contains(Path.GetExtension(file).ToLower()))
+                                           .OrderBy(file => File.GetCreationTime(file))
                                            .ToArray();
+            
+            // Sort the image files by creation date
+            //Array.Sort(imageFiles, (a, b) => File.GetCreationTime(a).CompareTo(File.GetCreationTime(b)));
 
             if (imageFiles.Length > _TagsLists.Count)
                 MessageBox.Show("There are more images in the folder than tag groups entered. " +
@@ -237,6 +241,7 @@ namespace DanTagsEditor.MVVM.ViewModel
                 string imageName = Path.GetFileName(imagePath);
                 CreateTextFileFromImage(imageFiles[i], tagGroups[i]);
             }
+            MessageBox.Show("Text File Created Successfully. Check Your Directory", "Text File Created", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private string SelectFolder()
@@ -250,8 +255,18 @@ namespace DanTagsEditor.MVVM.ViewModel
 
             if (result == Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
             {
-                return folderBrowserDialog.SelectedPath;
+                string folderPath = folderBrowserDialog.SelectedPath;
+                //string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".bmp" };
+                //string[] imageFiles = Directory.GetFiles(folderPath, "*.*") // Get all files
+                //    .Where(file => imageExtensions.Contains(Path.GetExtension(file).ToLower())) // Filter by file extension
+                //    .OrderBy(file => File.GetCreationTime(file)) // Sort by creation date in ascending order
+                //    .ToArray();
+
+                //// Sort the image files by creation date
+                //Array.Sort(imageFiles, (a, b) => File.GetCreationTime(a).CompareTo(File.GetCreationTime(b)));
+                return folderPath;
             }
+
             return string.Empty;
         }
 
@@ -268,18 +283,13 @@ namespace DanTagsEditor.MVVM.ViewModel
             string textFilePath = Path.Combine(path1: Path.GetDirectoryName(imagePath)!, imageName + _textExt);
 
             if (File.Exists(textFilePath))
-            {
-                MessageBox.Show("Text file already exists. Check Your Directory");
-                _canDownloadFile = true;
-                return;
-            }
+                MessageBox.Show("Text file already exists. Will override it", "Override Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
 
             try
             {
                 // Write the text contents to the text file
                 File.WriteAllText(textFilePath, textContents);
 
-                MessageBox.Show("Text File Created Successfully. Check Your Directory", "Text File Created", MessageBoxButton.OK, MessageBoxImage.Information);
                 _canDownloadFile = true;
             }
             catch (Exception ex)

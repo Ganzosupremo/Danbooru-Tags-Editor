@@ -5,6 +5,7 @@
     xmlns:ViewModel="clr-namespace:DanTagsEditor.MVVM.ViewModel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:faSharp="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
     xmlns:local="clr-namespace:DanTagsEditor"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     AllowsTransparency="True"
@@ -40,7 +41,7 @@
                 Margin="10"
                 VerticalAlignment="Center"
                 Orientation="Horizontal">
-                <fa:ImageAwesome
+                <faSharp:IconImage
                     Width="20"
                     Height="20"
                     Foreground="White"
@@ -67,7 +68,7 @@
                     BorderThickness="0"
                     Command="{Binding CloseAppCommand}">
                     <Button.Content>
-                        <fa:ImageAwesome Foreground="IndianRed" Icon="WindowCloseOutline" />
+                        <faSharp:IconImage Foreground="IndianRed" Icon="WindowClose" />
                     </Button.Content>
                 </Button>
             </StackPanel>

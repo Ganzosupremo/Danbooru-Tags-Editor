@@ -5,7 +5,7 @@
     xmlns:View="clr-namespace:DanTagsEditor.MVVM.View"
     xmlns:ViewModel="clr-namespace:DanTagsEditor.MVVM.ViewModel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:faSharp="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="620"
     d:DesignWidth="800"
@@ -36,18 +36,23 @@
                 VerticalContentAlignment="Center"
                 Content="Paste the tags on the below text box."
                 FontFamily="Verdana"
-                FontSize="22"
+                FontSize="20"
                 FontWeight="Bold"
                 Foreground="White" />
-            <fa:FontAwesome Foreground="#FF5EA3FF" Icon="InfoCircle">
-                <fa:FontAwesome.ToolTip>
+            <faSharp:IconImage
+                Width="10"
+                Height="10"
+                VerticalAlignment="Top"
+                Foreground="#FF5EA3FF"
+                Icon="InfoCircle">
+                <faSharp:IconImage.ToolTip>
                     <TextBlock
                         FontFamily="Verdana"
                         FontSize="13"
                         FontWeight="Normal"
                         Text="You can copy a single danboorou tag group, and by tag group I mean, the tags for that image.&#x0a;Tick the Multiple Images Checkbox, so you can copy multiple groups and paste them, separating each group with a new line, then '//', then the next tag group on the next line.&#x0a;You can also select a text file containing multiple tag groups separated same as explained. Click Submit to get the output(s)." />
-                </fa:FontAwesome.ToolTip>
-            </fa:FontAwesome>
+                </faSharp:IconImage.ToolTip>
+            </faSharp:IconImage>
         </StackPanel>
 
         <!--  Tag Text Box  -->
@@ -67,18 +72,21 @@
                     Foreground="White"
                     IsChecked="False"
                     IsThreeState="False" />
-                <fa:FontAwesome
+                <faSharp:IconImage
+                    Width="10"
+                    Height="10"
                     Margin="2,0,0,0"
+                    VerticalAlignment="Top"
                     Foreground="#FF5EA3FF"
                     Icon="InfoCircle">
-                    <fa:FontAwesome.ToolTip>
+                    <faSharp:IconImage.ToolTip>
                         <TextBlock
                             FontFamily="Verdana"
                             FontSize="13"
                             FontWeight="Normal"
                             Text="Check if you want to work with multiple images at the same time.&#x0a;You can write the tags for the different images on the same TextBox.&#x0a;Separate each tag group with a New Line (Enter Key) and '//',&#x0a; and copy the next tag group on the next line.&#x0a;For example:&#x0a;? blabla 69k. Enter a new line.&#x0a;Then enter '//'.&#x0a;Then Enter another New Line, on this new line should the next tag group start.&#x0a; Btw the order of the tag groups should be the same as the images order.&#x0a;If you upload a text file, the tag groups on that file should also be separated same as explained." />
-                    </fa:FontAwesome.ToolTip>
-                </fa:FontAwesome>
+                    </faSharp:IconImage.ToolTip>
+                </faSharp:IconImage>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <View:ClearableTextBox
@@ -102,7 +110,10 @@
                         BorderThickness="0"
                         Command="{Binding SelectTextFileCommand}">
                         <Button.Content>
-                            <fa:FontAwesome Icon="File" />
+                            <faSharp:IconImage
+                                Width="16"
+                                Height="16"
+                                Icon="File" />
                         </Button.Content>
                         <Button.ToolTip>
                             <ToolTip Content="Use this button to upload a text file containing the tag groups separated using the same style as the example text." />
@@ -136,15 +147,20 @@
                     FontSize="20"
                     FontWeight="Bold"
                     Foreground="White" />
-                <fa:FontAwesome Foreground="#FF5EA3FF" Icon="InfoCircle">
-                    <fa:FontAwesome.ToolTip>
+                <faSharp:IconImage
+                    Width="12"
+                    Height="12"
+                    VerticalAlignment="Top"
+                    Foreground="#FF5EA3FF"
+                    Icon="InfoCircle">
+                    <faSharp:IconImage.ToolTip>
                         <TextBlock
                             FontFamily="Verdana"
                             FontSize="13"
                             FontWeight="Normal"
                             Text="The edited tags end up on the below textbox &#x0a;and can be copied with the button on the right side." />
-                    </fa:FontAwesome.ToolTip>
-                </fa:FontAwesome>
+                    </faSharp:IconImage.ToolTip>
+                </faSharp:IconImage>
             </StackPanel>
 
             <TextBlock
@@ -187,7 +203,10 @@
                         BorderThickness="0"
                         Command="{Binding CopyToClipboardCommand}">
                         <Button.Content>
-                            <fa:FontAwesome Icon="Clipboard" />
+                            <faSharp:IconImage
+                                Width="16"
+                                Height="16"
+                                Icon="Clipboard" />
                         </Button.Content>
                         <Button.ToolTip>
                             <ToolTip Content="{Binding ToolTipText}" />
@@ -205,15 +224,20 @@
                     FontSize="20"
                     FontWeight="Bold"
                     Foreground="White" />
-                <fa:FontAwesome Foreground="#FF5EA3FF" Icon="InfoCircle">
-                    <fa:FontAwesome.ToolTip>
+                <faSharp:IconImage
+                    Width="12"
+                    Height="12"
+                    VerticalAlignment="Top"
+                    Foreground="#FF5EA3FF"
+                    Icon="InfoCircle">
+                    <faSharp:IconImage.ToolTip>
                         <TextBlock
                             FontFamily="Verdana"
                             FontSize="13"
                             FontWeight="Normal"
                             Text="Before you upload any images, please enter the tags first and the Output text box should not be empty.&#x0a;You can create a text file for a single image, or if you ticked the Multiple Images Checkbox, you can create multiple text files for any amount of images.&#x0a;You can either upload each image one by one, or upload the entire folder where your images are.&#x0a;Note: It should be one tag group per image, if you have more images than tag groups, then some images won't have a text file created, and if you have more tag groups than images, then it will create a text file only for the available images." />
-                    </fa:FontAwesome.ToolTip>
-                </fa:FontAwesome>
+                    </faSharp:IconImage.ToolTip>
+                </faSharp:IconImage>
             </StackPanel>
 
             <StackPanel
@@ -247,7 +271,10 @@
                         BorderThickness="0"
                         Command="{Binding UploadImageCommand}">
                         <Button.Content>
-                            <fa:FontAwesome Icon="Upload" />
+                            <faSharp:IconImage
+                                Width="16"
+                                Height="16"
+                                Icon="FileUpload" />
                         </Button.Content>
                         <Button.ToolTip>
                             <TextBlock Text="Upload image(s) from your computer &#x0a;that will be used to name the .txt file(s). Alternatevely, you can upload an entire folder with your images." />
@@ -269,7 +296,10 @@
                         BorderThickness="0"
                         Command="{Binding SelectFolderCommand}">
                         <Button.Content>
-                            <fa:FontAwesome Icon="FolderOpen" />
+                            <faSharp:IconImage
+                                Width="16"
+                                Height="16"
+                                Icon="FolderOpen" />
                         </Button.Content>
                         <Button.ToolTip>
                             <TextBlock Text="Select your image source folder" />
@@ -293,7 +323,7 @@
                     Command="{Binding ClearTxtBoxesCommand}">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
-                            <fa:FontAwesome
+                            <faSharp:IconImage
                                 Width="16"
                                 Height="16"
                                 VerticalAlignment="Center"
