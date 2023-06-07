@@ -256,14 +256,6 @@ namespace DanTagsEditor.MVVM.ViewModel
             if (result == Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
             {
                 string folderPath = folderBrowserDialog.SelectedPath;
-                //string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".bmp" };
-                //string[] imageFiles = Directory.GetFiles(folderPath, "*.*") // Get all files
-                //    .Where(file => imageExtensions.Contains(Path.GetExtension(file).ToLower())) // Filter by file extension
-                //    .OrderBy(file => File.GetCreationTime(file)) // Sort by creation date in ascending order
-                //    .ToArray();
-
-                //// Sort the image files by creation date
-                //Array.Sort(imageFiles, (a, b) => File.GetCreationTime(a).CompareTo(File.GetCreationTime(b)));
                 return folderPath;
             }
 
